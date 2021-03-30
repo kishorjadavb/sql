@@ -28,6 +28,9 @@ Route::get('form', function () {
 Route::get('login', function () {
     return view('login');
 });
+Route::get('viewcontent', function () {
+    return view('viewlargeblog');
+});
 // Route::get('signupform', function () {
 //     return view('signup');
 // });
@@ -42,6 +45,8 @@ Route::post('loginClicked', [LoginController::class, 'loginSubmit'])->name('logi
 
 //blogPost
 Route::get('/blog', [BlogController::class, 'getBlogPost']);
+//blog view big
+Route::get('/viewcontent/{id}', [BlogController::class, 'viewBlog']);
 //to add blogpost
 Route::get('/addPost', [BlogController::class, 'addBlogPost']);
 //to add blogpost submit button clicked

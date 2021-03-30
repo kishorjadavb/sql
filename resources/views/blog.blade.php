@@ -62,7 +62,8 @@
   <div class="container flex flex-col px-5 py-24 mx-auto">
     <div class="mx-auto lg:w-4/6">
       <div class="overflow-hidden rounded-lg h-74">
-        <img alt="content" class="object-cover object-center w-full h-84" src="{{$post->heading}}">
+        <img alt="content" class="object-cover object-center w-full h-84" src="{{$post->image}}">
+         <h2 class="mt-4 text-2xl text-justify text-gray-900 title-font">{{$post->heading}}</h2>
       </div>
       <div class="flex flex-col mt-10 sm:flex-row">
         <div class="text-center sm:w-1/3 sm:pr-8 sm:py-8">
@@ -73,18 +74,41 @@
             </svg>
           </div>
           <div class="flex flex-col items-center justify-center text-center">
-            <h2 class="mt-4 text-lg font-medium text-gray-500 title-font">{{$post->description}}</h2>
+            <h2 class="mt-4 text-lg font-medium text-gray-500 title-font">{{$post->author}}</h2>
             <div class="w-12 h-1 mt-2 mb-4 bg-blue-500 rounded"></div>
-            <p class="text-base">{{$post->date}}.</p>
+            {{-- <h2 class="mt-4 text-lg font-medium text-gray-500 title-font">Catogery:{{$post->catogry}}</h2> --}}
+             <p class="text-base">{{$post->date}}.</p> 
           </div>
         </div>
         <div class="pt-4 mt-4 text-center border-t border-black sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l sm:border-t-0 sm:mt-0 sm:text-left">
-          <p class="mb-4 text-lg leading-relaxed text-gray-900">{{$post->content}}.</p>
-          <a class="inline-flex items-center text-blue-500">Learn More
+          <span class="inline-block px-2 py-1 text-xs font-medium tracking-widest text-gray-700 rounded bg-gray-50">{{$post->catogry}} </span>
+        
+          <p class="mb-4 text-lg leading-relaxed text-justify text-gray-900">{{$post->description}}.</p>
+          {{-- <a href="viewcontent/{{$post->id}}" class="inline-flex items-center text-blue-500 ">Learn More
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
               <path d="M5 12h14M12 5l7 7-7 7"></path>
             </svg>
+          </a> --}}
+          <div class="flex flex-wrap items-center w-full pb-4 mt-auto mb-4 border-b-2 border-gray-100">
+          <a href="viewcontent/{{$post->id}}" class="inline-flex items-center text-blue-800">Read More
+            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
           </a>
+          <span class="inline-flex items-center py-1 pr-3 ml-auto mr-3 text-sm leading-none text-gray-400 border-r-2 border-gray-200">
+            <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>1.2K
+          </span>
+          {{-- <span class="inline-flex items-center text-sm leading-none text-gray-400">
+            <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+            </svg>6
+          </span> --}}
+        </div>
+
           <a href="editPost/{{$post->id}}" class="inline-block px-2 py-1 mb-2 text-xs font-bold tracking-widest text-white bg-green-600 rounded-full">Edit</a>
           <a href="deletePost/{{$post->id}}" class="inline-block px-2 py-1 mb-2 text-xs font-bold tracking-widest text-white bg-red-600 rounded-full">Delete</a>
 
